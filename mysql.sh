@@ -4,10 +4,10 @@ source ./common.sh
 
 check_root
 
-echo "Enter Password:"
+echo "Enter DB Password:"
 read -s PASSWORD
 
-dnf install mysql-sercxver -y &>> $LOGFILE
+dnf install mysql-server -y &>> $LOGFILE
 #VALIDATE $? "Installing MYSQL server"
 
 systemctl enable mysqld  &>>$LOGFILE
