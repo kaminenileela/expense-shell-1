@@ -45,7 +45,7 @@ unzip /tmp/backend.zip &>>$LOGFILE
 npm install &>>$LOGFILE
 #VALIDATE $? "installing nodejs dependencies"
 
-cp /home/ec2-user/expense-project-shell/backend.service /etc/systemd/system/backend.service
+cp /home/ec2-user/expense-shell-1/backend.service /etc/systemd/system/backend.service
 #VALIDATE $? "copied backend service"
 
 systemctl daemon-reload &>>$LOGFILE
