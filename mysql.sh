@@ -19,7 +19,7 @@ systemctl start mysqld &>>$LOGFILE
 #VALIDATE $? "Setting up root password"
 
 #Below code will be useful for idempotent nature
-mysql -h db.learningdevopsaws.online -uroot -p${PASSWORD} -e 'SHOW DATABASES;' &>>$LOGFILE
+mysql -h db.learningdevopsaws.online -uroot -p$PASSWORD -e 'SHOW DATABASES;' &>>$LOGFILE
 
 if [ $? -ne 0 ]
 then
