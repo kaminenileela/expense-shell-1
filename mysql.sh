@@ -15,19 +15,29 @@ systemctl enable mysqld  &>>$LOGFILE
 systemctl start mysqld &>>$LOGFILE
 #VALIDATE $? "Starting MYSQL server"
 
-mysql_secure_installation --set-root-pass $PASSWORD &>>$LOGFILE
+
+run_mysql_secure_installation() {
+    mysql_secure_installation --set-root-pass $PASSWORD &>>$LOGFILE || true
+}
+
+# Run mysql_secure_installation
+run_mysql_secure_installation
+
+echo -e "MySQL secure installation completed"
+
+#mysql_secure_installation --set-root-pass $PASSWORD &>>$LOGFILE
 #VALIDATE $? "Setting up root password"
 
 #Below code will be useful for idempotent nature
 #mysql -h db.learningdevopsaws.online -uroot -p$PASSWORD -e 'SHOW DATABASES;' &>>$LOGFILE
 
-if [ $? -ne 0 ]
-then
-   mysql_secure_installation --set-root-pass $PASSWORD &>>$LOGFILE
-   #VALIDATE $? "Setting up root password"
+# if [ $? -ne 0 ]
+# then
+#    mysql_secure_installation --set-root-pass $PASSWORD &>>$LOGFILE
+#    #VALIDATE $? "Setting up root password"
 
-else
-    echo -e "Mysql password already setup... $Y SKIPPING $N"
-fi
+# else
+#     echo -e "Mysql password already setup... $Y SKIPPING $N"
+# fi
    
    
