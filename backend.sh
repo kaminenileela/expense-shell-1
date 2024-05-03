@@ -5,7 +5,7 @@ source ./common.sh
 check_root
 
 echo "Enter Password:"
-read -s PASSWORD
+read PASSWORD
 
 
 dnf module disable nodejs -y &>>$LOGFILE
