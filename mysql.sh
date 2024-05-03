@@ -4,8 +4,7 @@ source ./common.sh
 
 check_root
 
-echo "Enter DB Password:"
-read -s PASSWORD
+read -p "Enter DB Password: " PASSWORD
 
 dnf install mysql-server -y &>> $LOGFILE
 #VALIDATE $? "Installing MYSQL server"
@@ -20,7 +19,7 @@ systemctl start mysqld &>>$LOGFILE
 #VALIDATE $? "Setting up root password"
 
 #Below code will be useful for idempotent nature
-mysql -h db.learningdevopsaws.online -uroot -p$PASSWORD -e 'SHOW DATABASES;' &>>$LOGFILE
+mysql -h db.learningdevopsaws.online -uroot -p${PASSWORD} -e 'SHOW DATABASES;' &>>$LOGFILE
 
 if [ $? -ne 0 ]
 then
