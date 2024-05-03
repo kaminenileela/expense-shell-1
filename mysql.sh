@@ -17,7 +17,7 @@ systemctl start mysqld &>>$LOGFILE
 
 
 run_mysql_secure_installation() {
-    mysql_secure_installation -h db.learningdevopsaws.online --set-root-pass "$PASSWORD" &>>$LOGFILE #|| true
+    mysql_secure_installation -h db.learningdevopsaws.online --set-root-pass "$PASSWORD" &>>$LOGFILE 
 }
 
 is_root_pass_set () {
