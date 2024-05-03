@@ -29,7 +29,7 @@ is_root_pass_set () {
     fi
 }
 
-is_root_pass_set || mysql_secure_installation
+is_root_pass_set || run_mysql_secure_installation 
 
 
 # Run mysql_secure_installation
