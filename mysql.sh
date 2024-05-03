@@ -17,11 +17,23 @@ systemctl start mysqld &>>$LOGFILE
 
 
 run_mysql_secure_installation() {
-    mysql_secure_installation --set-root-pass $PASSWORD &>>$LOGFILE || true
+    mysql_secure_installation --set-root-pass $PASSWORD &>>$LOGFILE #|| true
 }
 
+is_root_pass_set () {
+    mysql -uroot -p$PASSWORD -e"select 1;" &>/dev/null
+    if [[ $? -eq 0 ]];then
+        return 0
+    else
+        return 1
+    fi
+}
+
+is_root_pass_set || mysql_secure_installation
+
+
 # Run mysql_secure_installation
-run_mysql_secure_installation
+#run_mysql_secure_installation
 
 echo -e "MySQL secure installation completed"
 
