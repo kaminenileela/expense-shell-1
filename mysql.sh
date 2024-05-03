@@ -15,7 +15,7 @@ systemctl enable mysqld  &>>$LOGFILE
 systemctl start mysqld &>>$LOGFILE
 #VALIDATE $? "Starting MYSQL server"
 
-#mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
+mysql_secure_installation --set-root-pass $PASSWORD &>>$LOGFILE
 #VALIDATE $? "Setting up root password"
 
 #Below code will be useful for idempotent nature
