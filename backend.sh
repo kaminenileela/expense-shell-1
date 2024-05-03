@@ -17,12 +17,12 @@ dnf module enable nodejs:20 -y &>>$LOGFILE
 dnf install nodejs -y &>>$LOGFILE
 #VALIDATE $? "Installing nodejs"
 
-useradd (){
+useradd(){
 
     useradd expense
 }
 
-is_user_expense_exist () {
+is_user_expense_exist(){
     id expense
 }
 
