@@ -24,6 +24,11 @@ useradd(){
 
 is_user_expense_exist(){
     id expense
+    if [[ $? -eq 0 ]];then
+        return 0
+    else
+        return 1
+    fi
 }
 
 is_user_expense_exist || useradd
