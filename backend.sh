@@ -19,8 +19,7 @@ dnf install nodejs -y &>>$LOGFILE
 
 
 
-useradd expense || true
-
+useradd expense || true &>>$LOGFILE
 
 # id expense &>>$LOGFILE
 
