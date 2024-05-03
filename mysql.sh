@@ -21,7 +21,7 @@ run_mysql_secure_installation() {
 }
 
 is_root_pass_set () {
-    mysql -uroot -p$PASSWORD -e"select 1;" &>/dev/null
+    mysql -uroot -p$PASSWORD -h db.learningdevopsaws.online -e"select 1;" &>/dev/null
     if [[ $? -eq 0 ]];then
         return 0
     else
